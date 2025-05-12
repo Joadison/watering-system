@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { addWateringRecord } from "@/app/actions";
 import { Button } from "@/components/ui/button";
@@ -20,10 +20,10 @@ function SubmitButton() {
 
 export function WateringForm() {
   const [name, setName] = useState("");
+  const [localDate, setLocalDate] = useState("");
 
   async function handleSubmit(formData: FormData) {
     const result = await addWateringRecord(formData);
-
     if (result.success) {
       toast(result.message);
       setName("");
@@ -31,6 +31,19 @@ export function WateringForm() {
       toast(result.message);
     }
   }
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date().toLocaleString("pt-BR", {
+        timeZone: "America/Fortaleza",
+      });
+      setLocalDate(now);
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <form action={handleSubmit} className="space-y-4">
@@ -44,6 +57,7 @@ export function WateringForm() {
           placeholder="Digite seu nome"
           required
         />
+        <Label>{localDate}</Label>
       </div>
       <SubmitButton />
     </form>
