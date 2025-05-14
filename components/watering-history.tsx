@@ -17,6 +17,7 @@ export function WateringHistory({ records }: WateringHistoryProps) {
   function formatDate(dateString: string) {
     const date = new Date(dateString);
     return new Intl.DateTimeFormat("pt-BR", {
+      timeZone: "America/Fortaleza",
       day: "2-digit",
       month: "2-digit",
       year: "numeric",
@@ -27,8 +28,10 @@ export function WateringHistory({ records }: WateringHistoryProps) {
   function formatTime(dateString: string) {
     const date = new Date(dateString);
     return new Intl.DateTimeFormat("pt-BR", {
+      timeZone: "America/Fortaleza",
       hour: "2-digit",
       minute: "2-digit",
+      hour12: false,
     }).format(date);
   }
 
