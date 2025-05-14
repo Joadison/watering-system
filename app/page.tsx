@@ -34,7 +34,7 @@ async function TableCheck() {
       <TabsContent value="register">
         <Card>
           <CardHeader>
-            <CardTitle>Registrar Nova Rega</CardTitle>
+            <CardTitle>Registrar Rega</CardTitle>
             <CardDescription>
               Informe quem regou as plantas. A data e hora serão registradas
               automaticamente.

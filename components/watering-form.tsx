@@ -48,7 +48,8 @@ export function WateringForm() {
   return (
     <form action={handleSubmit} className="space-y-4">
       <div className="space-y-2">
-        <Label htmlFor="name">Quem regou a planta?</Label>
+        
+        <Label htmlFor="name">Quem regou a planta? {localDate}</Label>
         <Input
           id="name"
           name="name"
@@ -57,7 +58,7 @@ export function WateringForm() {
           placeholder="Digite seu nome"
           required
         />
-        <Label>{localDate}</Label>
+        
       </div>
       <SubmitButton />
     </form>

@@ -13,7 +13,6 @@ interface WateringHistoryProps {
 }
 
 export function WateringHistory({ records }: WateringHistoryProps) {
-  // Format date to Brazilian format
   function formatDate(dateString: string) {
     const date = new Date(dateString);
     return new Intl.DateTimeFormat("pt-BR", {
@@ -23,8 +22,6 @@ export function WateringHistory({ records }: WateringHistoryProps) {
       year: "numeric",
     }).format(date);
   }
-
-  // Format time to Brazilian format
   function formatTime(dateString: string) {
     const date = new Date(dateString);
     return new Intl.DateTimeFormat("pt-BR", {
